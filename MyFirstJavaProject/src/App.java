@@ -1,3 +1,6 @@
+import java.util.Date;
+import java.awt.*;
+
 public class App {
     public static void main(String[] args) throws Exception {
         // (type) (identifier) (assignment operator) (value)
@@ -28,5 +31,19 @@ public class App {
         System.out.println(price);
         System.out.println(letter);
         System.out.println(isEligible);
+
+        // Reference Types
+
+        // Need to allocate memory with "new" operator
+        // Reference types reference memory location
+
+        Date now = new Date();
+        System.out.println(now);
+
+        Point point1 = new Point(1, 1);
+        Point point2 = point1;
+        point1.x = 2;
+        System.out.println(point2);
+
     }
 }
