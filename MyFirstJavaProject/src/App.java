@@ -45,5 +45,16 @@ public class App {
         point1.x = 2;
         System.out.println(point2);
 
+        // Strings
+        // Reference types in Java
+        // Immutable!!
+
+        String message = "Hello World" + "!!";
+        
+        System.out.println(message.length());
+        System.out.println(message.indexOf("W"));
+        System.out.println(message.toLowerCase());
+        System.out.println(message.trim());
+
     }
 }
