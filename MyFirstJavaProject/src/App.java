@@ -74,6 +74,12 @@ public class App {
         Arrays.sort(numbers);
         System.out.println(Arrays.toString(numbers));
 
+        // Multi-Dimensional Array
+        
+        int[][] nums = new int[2][3];
+        nums[0][0] = 1;
+        System.out.println(Arrays.deepToString(nums));
+
 
     }
 }
