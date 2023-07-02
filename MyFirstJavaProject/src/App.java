@@ -130,6 +130,15 @@ public class App {
         Integer.parseInt(c);
         System.out.println(c);
 
+        // The Math class
+        int r = Math.round(1.1F);
+        System.out.println(r);
+
+        System.out.println(Math.ceil(1.1F));
+        
+        // Random number 0-100
+        int number = (int) (Math.random() * 100);
+        System.out.println(number);
 
 
     }
