@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Date;
 import java.awt.*;
 
@@ -50,11 +51,29 @@ public class App {
         // Immutable!!
 
         String message = "Hello World" + "!!";
-        
+
         System.out.println(message.length());
         System.out.println(message.indexOf("W"));
         System.out.println(message.toLowerCase());
         System.out.println(message.trim());
+
+        // Escape Sequences in Strings
+        String quoteMessage = "Hello \"World\"";
+        String newLineMessage = "Hello \n World";
+        System.out.println(quoteMessage);
+        System.out.println(newLineMessage);
+
+
+        // Arrays
+
+        int[] arr = new int[5];
+        arr[0] = 1;
+        System.out.println(Arrays.toString(arr));
+
+        int[] numbers = { 2, 3, 4, 1, 5 };
+        Arrays.sort(numbers);
+        System.out.println(Arrays.toString(numbers));
+
 
     }
 }
