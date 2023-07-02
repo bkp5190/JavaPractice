@@ -75,11 +75,17 @@ public class App {
         System.out.println(Arrays.toString(numbers));
 
         // Multi-Dimensional Array
-        
+
         int[][] nums = new int[2][3];
         nums[0][0] = 1;
         System.out.println(Arrays.deepToString(nums));
 
+        // Constants
+        // Final keyword to make variable immutable
+        // Capital letters for constants
+
+        final float PI = 3.14f;
+        System.out.println(PI);
 
     }
 }
