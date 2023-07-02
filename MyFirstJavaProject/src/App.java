@@ -87,5 +87,50 @@ public class App {
         final float PI = 3.14f;
         System.out.println(PI);
 
+        // Arithmetic Expressions
+
+        int result = 10 + 3;
+        float res = 10f / 3f;
+        System.out.println(result);
+        System.out.println(res);
+
+        // Decremental/Incremental Operator
+        int x = 1;
+        x++;
+        System.out.println(x);
+
+        // Augmented Operators
+        int y = 2;
+        y -= 2;
+        System.out.println(y);
+
+        // Casting
+        
+        // Implicit
+        // In this case, Java will cast the short (2 bytes) variable to an int (4 bytes)
+        // anonymously in memory and then perform the operation
+        // No data loss
+        // byte > short > int > long > float > double
+
+        short first = 3;
+        int second = first + 3;
+        System.out.println(second);
+
+        // Explicit
+        // No longer need the values after the decimal point in the double
+
+        double a = 10.33;
+        int b = (int)a + 3;
+        System.out.println(b);
+
+        // Wrapper classes for converting String to Float, Int, Double, Short, Long, Byte
+        // java.lang
+
+        String c = "123";
+        Integer.parseInt(c);
+        System.out.println(c);
+
+
+
     }
 }
