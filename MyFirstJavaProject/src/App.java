@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Date;
 import java.awt.*;
+import java.text.NumberFormat;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -140,6 +141,11 @@ public class App {
         int number = (int) (Math.random() * 100);
         System.out.println(number);
 
+        // Formatting Numbers
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String re = currency.format(1234567.891);
+        System.out.println(re);
 
+        
     }
 }
