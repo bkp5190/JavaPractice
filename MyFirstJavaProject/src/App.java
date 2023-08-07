@@ -146,6 +146,6 @@ public class App {
         String re = currency.format(1234567.891);
         System.out.println(re);
 
-        
+        System.out.println("Hello");
     }
 }
