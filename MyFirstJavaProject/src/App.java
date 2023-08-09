@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.awt.*;
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -148,5 +149,12 @@ public class App {
 
         System.out.println("Hello");
         System.out.println("World");
+
+        // Read user input
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter a value:");
+
+        String val = myObj.nextLine();
+        System.out.println("You entered: " + val);
     }
 }
