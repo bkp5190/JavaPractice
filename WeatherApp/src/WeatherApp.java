@@ -17,7 +17,7 @@ class gui {
         frame.setVisible(true);
     }
 }
-public class App {
+public class WeatherApp {
     public static void main(String[] args) throws Exception {
 
         String apiKey = System.getenv("OPENWEATHERMAP_API_KEY");
@@ -32,11 +32,11 @@ public class App {
             return;
         }
 
-        // Create an instance of the GUI
-        SwingUtilities.invokeLater(() -> {
-            new gui();
-        });
-                
+        WeatherModel model = new WeatherModel(apiKey, zipCode);
+        WeatherView view = new WeatherView();
+        WeatherController controller = new WeatherController(view, model);
+
+
         HttpRequest zipRequest = HttpRequest.newBuilder()
             .uri(URI.create("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + "&appid=" + apiKey))
             .method("GET", HttpRequest.BodyPublishers.noBody())
