@@ -17,11 +17,7 @@ public class WeatherModel {
 
     }
 
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public double[] setLatAndLonBasedOnZip(String zipCode) {
+    public double[] setLatAndLonBasedOnZip() {
 
         double[] latLonArray = new double[2];
 

@@ -14,7 +14,7 @@ public class WeatherController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                double[] latLonArray = model.setLatAndLonBasedOnZip(model.getZipCode());
+                double[] latLonArray = model.setLatAndLonBasedOnZip();
                 
                 model.generateWeatherInformation(latLonArray[0], latLonArray[1]);
             }
