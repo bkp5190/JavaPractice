@@ -21,7 +21,9 @@ public class WeatherModel {
         return zipCode;
     }
 
-    public void setLatAndLonBasedOnZip(String zipCode) {
+    public double[] setLatAndLonBasedOnZip(String zipCode) {
+
+        double[] latLonArray = new double[2];
 
         HttpRequest zipRequest = HttpRequest.newBuilder()
             .uri(URI.create("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + "&appid=" + apiKey))
@@ -36,7 +38,6 @@ public class WeatherModel {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        System.out.println(zipResponse.body());
 
         // Parse JSON using Gson
         JsonParser parser = new JsonParser();
@@ -46,8 +47,27 @@ public class WeatherModel {
         double lat = jsonResponse.get("lat").getAsDouble();
         double lon = jsonResponse.get("lon").getAsDouble();
 
-        System.out.println("Latitude:" + lat);
-        System.out.println("Longitude:" + lon);
+        latLonArray[0] = lat; 
+        latLonArray[1] = lon;
+
+        return latLonArray;
     }
-    
+
+    public void generateWeatherInformation(double lat, double lon) {
+        
+        HttpRequest forecastRequest = HttpRequest.newBuilder()
+            .uri(URI.create("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey))
+            .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+            
+        HttpResponse<String> forecastResponse = null;
+		try {
+			forecastResponse = HttpClient.newHttpClient().send(forecastRequest, HttpResponse.BodyHandlers.ofString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(forecastResponse.body());
+    }
 }

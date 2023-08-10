@@ -13,9 +13,10 @@ public class WeatherController {
         view.addButtonClickListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the method in the model to fetch weather data
-                // model.fetchWeatherData();
-                model.setLatAndLonBasedOnZip(model.getZipCode());
+                
+                double[] latLonArray = model.setLatAndLonBasedOnZip(model.getZipCode());
+                
+                model.generateWeatherInformation(latLonArray[0], latLonArray[1]);
             }
         });
     }
