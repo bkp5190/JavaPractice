@@ -5,10 +5,24 @@ import java.net.http.HttpResponse;
 import java.io.IOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import javax.swing.*;
 
+class gui {
+    public gui() {
+        JFrame frame = new JFrame("Weather App");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
+        JButton button = new JButton("Generate Weather");
+        frame.getContentPane().add(button); // Adds Button to content pane of frame
+        frame.setVisible(true);
+    }
+}
 public class App {
     public static void main(String[] args) throws Exception {
-
+        // Create an instance of the GUI
+        SwingUtilities.invokeLater(() -> {
+            new gui();
+        });
         String apiKey = System.getenv("OPENWEATHERMAP_API_KEY");
         if (apiKey == null || apiKey.isEmpty()) {
             System.out.println("API key not set. Exiting...");
