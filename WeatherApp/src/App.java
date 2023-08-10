@@ -19,10 +19,7 @@ class gui {
 }
 public class App {
     public static void main(String[] args) throws Exception {
-        // Create an instance of the GUI
-        SwingUtilities.invokeLater(() -> {
-            new gui();
-        });
+
         String apiKey = System.getenv("OPENWEATHERMAP_API_KEY");
         if (apiKey == null || apiKey.isEmpty()) {
             System.out.println("API key not set. Exiting...");
@@ -35,6 +32,11 @@ public class App {
             return;
         }
 
+        // Create an instance of the GUI
+        SwingUtilities.invokeLater(() -> {
+            new gui();
+        });
+                
         HttpRequest zipRequest = HttpRequest.newBuilder()
             .uri(URI.create("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + "&appid=" + apiKey))
             .method("GET", HttpRequest.BodyPublishers.noBody())
