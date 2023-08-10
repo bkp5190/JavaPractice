@@ -10,10 +10,12 @@ import com.google.gson.JsonParser;
 public class WeatherModel {
     private String apiKey;
     private String zipCode;
+    private String apiUrl;
 
-    public WeatherModel(String apiKey, String zipCode) {
+    public WeatherModel(String apiKey, String zipCode, String apiUrl) {
         this.apiKey = apiKey;
         this.zipCode = zipCode;
+        this.apiUrl = apiUrl;
 
     }
 
@@ -22,7 +24,7 @@ public class WeatherModel {
         double[] latLonArray = new double[2];
 
         HttpRequest zipRequest = HttpRequest.newBuilder()
-            .uri(URI.create("http://api.openweathermap.org/geo/1.0/zip?zip=" + zipCode + "&appid=" + apiKey))
+            .uri(URI.create(apiUrl + "/geo/1.0/zip?zip=" + zipCode + "&appid=" + apiKey))
             .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
 
@@ -52,7 +54,7 @@ public class WeatherModel {
     public void generateWeatherInformation(double lat, double lon) {
         
         HttpRequest forecastRequest = HttpRequest.newBuilder()
-            .uri(URI.create("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey))
+            .uri(URI.create(apiUrl + "/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey))
             .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
             

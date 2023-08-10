@@ -13,7 +13,12 @@ public class WeatherApp {
             return;
         }
 
-        WeatherModel model = new WeatherModel(apiKey, zipCode);
+        String apiUrl = System.getenv("OPENWEATHERMAP_URL");
+        if (apiUrl == null || apiUrl.isEmpty()) {
+            System.out.println("Weather API URL is not set. Exiting...");
+        }
+
+        WeatherModel model = new WeatherModel(apiKey, zipCode, apiUrl);
         WeatherView view = new WeatherView();
         WeatherController controller = new WeatherController(view, model);
 
