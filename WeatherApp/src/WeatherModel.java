@@ -7,6 +7,8 @@ import java.net.http.HttpResponse;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import org.json.JSONObject;
+
 public class WeatherModel {
     private String apiKey;
     private String zipCode;
@@ -51,7 +53,7 @@ public class WeatherModel {
         return latLonArray;
     }
 
-    public String generateWeatherInformation(double lat, double lon) {
+    public JSONObject generateWeatherInformation(double lat, double lon) {
         
         HttpRequest forecastRequest = HttpRequest.newBuilder()
             .uri(URI.create(apiUrl + "/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey))
@@ -63,9 +65,10 @@ public class WeatherModel {
 			forecastResponse = HttpClient.newHttpClient().send(forecastRequest, HttpResponse.BodyHandlers.ofString());
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        return forecastResponse.body();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        JSONObject response = new JSONObject(forecastResponse.body());
+        return response;
     }
 }
