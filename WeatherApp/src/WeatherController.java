@@ -1,8 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import org.json.JSONObject;
 
 public class WeatherController {
     private WeatherView view;
@@ -19,16 +18,10 @@ public class WeatherController {
                 
                 double[] latLonArray = model.setLatAndLonBasedOnZip();
                 
-                String information = model.generateWeatherInformation(latLonArray[0], latLonArray[1]);
-                JsonParser parser = new JsonParser();
-                JsonObject jsonResponse = parser.parseString(information).getAsJsonObject();
-                System.out.println(jsonResponse);
-                String location = jsonResponse.get("name").getAsString();
-                // String description = jsonResponse.get("description").getAsString();
-                // String temp = jsonResponse.get("temp").getAsString();
-                String description = "";
-                String temp = "100";
-                view.displayInformation(location, description, temp);
+                JSONObject information = model.generateWeatherInformation(latLonArray[0], latLonArray[1]);
+                System.out.println(information);
+                
+                // view.displayInformation(location, description, temp);
             }
         });
     }
