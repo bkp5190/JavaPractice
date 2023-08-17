@@ -51,7 +51,7 @@ public class WeatherModel {
         return latLonArray;
     }
 
-    public void generateWeatherInformation(double lat, double lon) {
+    public String generateWeatherInformation(double lat, double lon) {
         
         HttpRequest forecastRequest = HttpRequest.newBuilder()
             .uri(URI.create(apiUrl + "/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey))
@@ -66,6 +66,6 @@ public class WeatherModel {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println(forecastResponse.body());
+        return forecastResponse.body();
     }
 }

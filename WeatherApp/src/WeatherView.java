@@ -8,7 +8,7 @@ public class WeatherView {
     public WeatherView() {
         frame = new JFrame("Weather App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 300);
+        frame.setSize(500, 500);
 
         button = new JButton("Generate Weather");
         frame.getContentPane().add(button);
@@ -18,5 +18,9 @@ public class WeatherView {
 
     public void addButtonClickListener(ActionListener listener) {
         button.addActionListener(listener);
+    }
+    public void displayInformation(String location, String description, String temp) {
+        String message = "Location: " + location + "\nTemperature: " + temp + "°C\nWeather: " + description;
+        JOptionPane.showMessageDialog(null, message, "Weather Information", JOptionPane.INFORMATION_MESSAGE);
     }
 }
