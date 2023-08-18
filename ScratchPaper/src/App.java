@@ -42,4 +42,25 @@ public class App {
             this.x = x;
         }
     }
+
+    // Visibility Modifiers: public, protected, Package-Private, private
+    
+    // Constructors
+
+    public class Point1 {
+        private double x;
+        private double y;
+
+        // Full Constructor
+        public Point1(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        // Constructor Chaining
+        public Point1(double a) {
+            // Setting a default to 0 for y
+            this(a, 0);
+        }
+    }
 }
