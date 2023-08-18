@@ -27,4 +27,19 @@ public class App {
             return maximum;
         }
     }
+
+    // A Simple Public Class
+    // Keep variables private and use getters/setters to access variables securely
+    public class Point {
+        private double x;
+        private double y;
+
+        public double getX() {
+            return x;
+        }
+
+        public void setX(double x) {
+            this.x = x;
+        }
+    }
 }
