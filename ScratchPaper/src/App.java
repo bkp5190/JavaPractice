@@ -14,6 +14,9 @@ public class App {
         // nullObject.equals(*) will throw a NPE
         
         System.out.println("Checking if object is null: " + checkEqual(nullObject, null));
+
+        // Pass By Value example
+        passByValue();
     }
 
     public class FindMax {
@@ -80,5 +83,20 @@ public class App {
     
     public static boolean checkEqual(String one, String two) {
         return one == two;
+    }
+
+    // Pass by Value
+    
+    // Local variable is only changed, not the original 
+    
+    public static void passByValue() {
+        int count = 0;
+        helper(count);
+        System.out.println("Count: " + count);
+    }
+
+    public static void helper(int x) {
+        x = x + 1;
+        System.out.println("X: " + x);
     }
 }
