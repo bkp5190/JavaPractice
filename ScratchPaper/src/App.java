@@ -1,7 +1,11 @@
 public class App {
     public static void main(String[] args) throws Exception {
         int[] nums = { 1, 2, 3, 4, 5 };
-        System.out.print(FindMax.findMax(nums));
+
+        String literal = "This is a String";
+        String object = new String("This is a String");
+
+        System.out.print(checkEqual(literal, object));
     }
 
     public class FindMax {
@@ -62,5 +66,11 @@ public class App {
             // Setting a default to 0 for y
             this(a, 0);
         }
+    }
+
+    // String Literals vs Objects
+    
+    public static boolean checkEqual(String one, String two) {
+        return one == two;
     }
 }
