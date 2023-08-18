@@ -5,7 +5,15 @@ public class App {
         String literal = "This is a String";
         String object = new String("This is a String");
 
-        System.out.print(checkEqual(literal, object));
+        System.out.println("Checking if String literal and String object are equal: " + checkEqual(literal, object));
+
+        // Null Checking
+
+        String nullObject = null;
+        // null object cannot use the .equals:
+        // nullObject.equals(*) will throw a NPE
+        
+        System.out.println("Checking if object is null: " + checkEqual(nullObject, null));
     }
 
     public class FindMax {
