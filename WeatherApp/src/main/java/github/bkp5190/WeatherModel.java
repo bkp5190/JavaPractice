@@ -1,11 +1,10 @@
+package main.java.github.bkp5190;
+
 import java.net.http.HttpRequest;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -40,12 +39,11 @@ public class WeatherModel {
 		}
 
         // Parse JSON using Gson
-        JsonParser parser = new JsonParser();
-        JsonObject jsonResponse = parser.parse(zipResponse.body()).getAsJsonObject();
+        JSONObject jsonResponse = new JSONObject(zipResponse.body());
 
         // Extract the "lat" and "lon" based on zip
-        double lat = jsonResponse.get("lat").getAsDouble();
-        double lon = jsonResponse.get("lon").getAsDouble();
+        double lat = jsonResponse.getDouble("lat");
+        double lon = jsonResponse.getDouble("lon");
 
         latLonArray[0] = lat; 
         latLonArray[1] = lon;

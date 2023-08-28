@@ -1,3 +1,5 @@
+package main.java.github.bkp5190;
+
 public class WeatherApp {
     public static void main(String[] args) throws Exception {
 
